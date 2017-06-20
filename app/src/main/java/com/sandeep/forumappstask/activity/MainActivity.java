@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private TextView tvLogin, tvRegister;
     private String loginEmail, loginPassword;
-    private EditText userNameET, passwordET;
+    private EditText etUserName, etPassword;
     private ProgressDialog progressdialog;
 
     @Override
@@ -54,8 +54,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         progressdialog = new ProgressDialog(this);
         tvRegister = (TextView) findViewById(R.id.tvRegister);
         tvLogin = (TextView) findViewById(R.id.tvLogin);
-        userNameET = (EditText) findViewById(R.id.userNameET);
-        passwordET = (EditText) findViewById(R.id.passwordET);
+        etUserName = (EditText) findViewById(R.id.etUserName);
+        etPassword = (EditText) findViewById(R.id.etPassword);
 
         tvRegister.setOnClickListener(this);
         tvLogin.setOnClickListener(this);
@@ -76,14 +76,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 if (isNetworkAvailable(this)) {
 
-                    loginEmail = userNameET.getText().toString();
-                    loginPassword = passwordET.getText().toString();
+                    loginEmail = etUserName.getText().toString();
+                    loginPassword = etPassword.getText().toString();
 
                     if (loginEmail.equalsIgnoreCase("")) {
-                        userNameET.setError("Enter UserName");
+                        etUserName.setError("Enter UserName");
                     } else if (loginPassword.equalsIgnoreCase("")) {
 
-                        passwordET.setError("Enter Password");
+                        etPassword.setError("Enter Password");
                     } else {
                         InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
                         imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);

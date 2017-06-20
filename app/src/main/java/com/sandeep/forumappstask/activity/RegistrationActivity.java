@@ -28,8 +28,8 @@ import retrofit.client.Response;
 public class RegistrationActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = RegistrationActivity.class.getCanonicalName();
-    private String emailStr, passStr, confPassStr, phnStr;
-    private EditText emailET, passwordET, confPassET;
+    private String strEmail, strPassword, strConfPass;
+    private EditText etEmail, etPassword, etConfirmPassword;
     private String token = null;
     private RegisterResult registereduser = null;
     private ProgressDialog progressdialog;
@@ -47,9 +47,9 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         progressdialog = new ProgressDialog(this);
         tvLogin = (TextView) findViewById(R.id.tvLogin);
         tvRegister = (TextView) findViewById(R.id.tvRegister);
-        emailET = (EditText) findViewById(R.id.emailET);
-        passwordET = (EditText) findViewById(R.id.passwordET);
-        confPassET = (EditText) findViewById(R.id.confPassET);
+        etEmail = (EditText) findViewById(R.id.etEmail);
+        etPassword = (EditText) findViewById(R.id.etPassword);
+        etConfirmPassword = (EditText) findViewById(R.id.etConfPass);
 
         tvLogin.setOnClickListener(this);
         tvRegister.setOnClickListener(this);
@@ -57,6 +57,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
 
     @Override
     public void onClick(View v) {
+
 
         switch (v.getId()) {
             case R.id.tvLogin:
@@ -70,24 +71,24 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
             case R.id.tvRegister:
 
                 token = PrefrenceManager.getInstance(this).getDeviceToken();
-                emailStr = emailET.getText().toString();
-                passStr = passwordET.getText().toString();
-                confPassStr = confPassET.getText().toString();
+                strEmail = etEmail.getText().toString();
+                strPassword = etPassword.getText().toString();
+                strConfPass = etConfirmPassword.getText().toString();
 
                 if (token.equalsIgnoreCase(Constants.STR_DEFAULT)) {
                     Toast.makeText(this, "token not generated", Toast.LENGTH_SHORT).show();
                 } else {
-                    if (emailStr.equalsIgnoreCase("")) {
-                        emailET.setError("Enter your name");
-                    } else if (passStr.equalsIgnoreCase("")) {
-                        passwordET.setError("Enter your password");
-                    } else if (confPassStr.equalsIgnoreCase("")) {
-                        confPassET.setError("Enter your confirm password");
-                    } else if (!passwordET.getText().toString().equals(confPassET.getText().toString())) {
+                    if (strEmail.equalsIgnoreCase("")) {
+                        etEmail.setError("Enter your name");
+                    } else if (strPassword.equalsIgnoreCase("")) {
+                        etPassword.setError("Enter your password");
+                    } else if (strConfPass.equalsIgnoreCase("")) {
+                        etConfirmPassword.setError("Enter your confirm password");
+                    } else if (!etPassword.getText().toString().equals(etConfirmPassword.getText().toString())) {
 
                         Toast.makeText(RegistrationActivity.this, "Password does not match", Toast.LENGTH_SHORT).show();
-                    } else if (passStr.length() < 6 || confPassStr.length() < 6) {
-                        passwordET.setError("You must have six characters in your password");
+                    } else if (strPassword.length() < 6 || strConfPass.length() < 6) {
+                        etPassword.setError("You must have six characters in your password");
                     } else {
 
                         boolean check = ValidEmail();
@@ -100,7 +101,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                             progressdialog.show();
                             //RestAdapter retrofit = new RestAdapter.Builder().setEndpoint("http://omninos.com").build();
                             ApiClass apiClass = RetrofitInstance.getRetrofit().create(ApiClass.class);
-                            apiClass.registerUser(emailStr, token, passStr, new Callback<RegisterResponse>() {
+                            apiClass.registerUser(strEmail, token, strPassword, new Callback<RegisterResponse>() {
                                 @Override
                                 public void success(RegisterResponse registerResponse, Response response) {
 
@@ -133,12 +134,12 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
 
     public boolean ValidEmail() {
         boolean check = false;
-        String email11 = emailET.getText().toString().trim();
+        String email11 = etEmail.getText().toString().trim();
         String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
         if (email11.matches(emailPattern)) {
             check = true;
         } else {
-            emailET.setError("Invalid email address");
+            etEmail.setError("Invalid email address");
             Toast.makeText(RegistrationActivity.this, "Invalid email address", Toast.LENGTH_SHORT).show();
         }
         return check;

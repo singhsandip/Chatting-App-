@@ -35,7 +35,6 @@ public class UsersListActivity extends AppCompatActivity {
     private UsersAdapter usersAdapter;
     private DatabaseHelper databaseHelper;
     private SQLiteDatabase sqLiteDatabase;
-    private boolean isFisrtTimeLaunch;
     private String unqiue_id;
     private ProgressBar pbLoading;
 

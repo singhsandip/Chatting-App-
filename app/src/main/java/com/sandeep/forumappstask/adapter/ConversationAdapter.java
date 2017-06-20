@@ -13,8 +13,9 @@ import com.sandeep.forumappstask.model.Message;
 import java.util.List;
 
 /**
- * Created by root on 20/4/17.
+ * Created by sandeep on 16-06-2017.
  */
+
 
 public class ConversationAdapter extends RecyclerView.Adapter<MessageViewholder> {
 

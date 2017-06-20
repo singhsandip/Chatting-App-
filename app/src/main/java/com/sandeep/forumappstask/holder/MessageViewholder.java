@@ -7,8 +7,9 @@ import android.widget.TextView;
 import com.sandeep.forumappstask.R;
 
 /**
- * Created by maninder on 18/6/17.
+ * Created by sandeep on 16-06-2017.
  */
+
 
 public class MessageViewholder extends RecyclerView.ViewHolder{
 
