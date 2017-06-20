@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "788479722741",
+    "firebase_url": "https://forumappstask.firebaseio.com",
+    "project_id": "forumappstask",
+    "storage_bucket": "forumappstask.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:788479722741:android:5068f88b38660613",
+        "android_client_info": {
+          "package_name": "com.sandeep.forumappstask"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "788479722741-3k1683h9ar91l1ibg0lvu1vco5sou47p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sandeep.forumappstask",
+            "certificate_hash": "44d369e67e85afb1aacfbc458c98a7e423efef1a"
+          }
+        },
+        {
+          "client_id": "788479722741-f7ia6m5rer1am2jclfa6s9luphcgm196.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_PA2h1F7dwmygScdE0vWwNOD_OXHLU-A"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "788479722741-f7ia6m5rer1am2jclfa6s9luphcgm196.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

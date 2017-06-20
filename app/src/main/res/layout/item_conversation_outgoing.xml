@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/llSms"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:elevation="5dp"
+    android:orientation="horizontal"
+    android:padding="7dp">
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <TextView
+        android:id="@+id/tvMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/rounded_corner_blue_rectangle"
+        android:padding="15dp"
+        android:textColor="#fff"
+        android:textSize="15dp"
+        tools:text="This is outgoing Sms" />
+
+
+</LinearLayout>
+
+
